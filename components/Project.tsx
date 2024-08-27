@@ -20,6 +20,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import BackgroundBeamsWithCollision from "./Background-Beams-With-Collision";
+
 
 const Project = () => {
   const [activeTab, setActiveTab] = useState("web");
@@ -64,51 +66,53 @@ const Project = () => {
         </TabsList>
         {["web", "mobile", "data", "ai"].map((tab) => (
           <TabsContent key={tab} value={tab}>
-            <Carousel className="w-full border-2 border-x-purple-700 border-y-yellow-400 rounded-lg">
-              <CarouselContent>
-                {filteredProjects.map((project) => (
-                  <CarouselItem key={project.title}>
-                    <div className="p-2">
-                      <Card>
-                        <CardHeader>
-                          <CardTitle className="flex items-center">
-                            <span className="ml-2 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent">
-                              {project.title}
-                            </span>
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex">
-                          {/* Project Image */}
-                          <div className="w-1/2">
-                            <Image
-                              src={project.image}
-                              alt={project.title}
-                              className="object-cover rounded-md mb-4"
-                              width={600}
-                              height={500}
-                            />
-                          </div>
-                          {/* Project Description */}
-                          <div className="w-1/2 pl-4">
-                            <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-justify capitalize font-sans text-gray-800 dark:text-gray-200">
-                              {project.description}
-                            </p>
-                          </div>
-                        </CardContent>
-                        <CardFooter>
-                          <Button
-                            variant="outline"
-                            className="w-fit bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl border-2 border-sky-400"
-                          >
-                            View Project{" "}
-                            <ExternalLink className="w-4 h-4 ml-2" />
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
+            <Carousel className="w-full border-4 border-dotted border-t-green-400 border-b-yellow-400 border-l-red-700 border-r-blue-900 rounded-xl">
+              <BackgroundBeamsWithCollision>
+                <CarouselContent>
+                  {filteredProjects.map((project) => (
+                    <CarouselItem key={project.title}>
+                      <div className="p-2">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="flex items-center">
+                              <span className="ml-2 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent">
+                                {project.title}
+                              </span>
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="flex">
+                            {/* Project Image */}
+                            <div className="w-1/2">
+                              <Image
+                                src={project.image}
+                                alt={project.title}
+                                className="object-cover rounded-md mb-4"
+                                width={600}
+                                height={500}
+                              />
+                            </div>
+                            {/* Project Description */}
+                            <div className="w-1/2 pl-4">
+                              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-justify capitalize font-sans text-gray-800 dark:text-gray-200">
+                                {project.description}
+                              </p>
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+                            <Button
+                              variant="outline"
+                              className="w-fit bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl border-2 border-sky-400"
+                            >
+                              View Project{" "}
+                              <ExternalLink className="w-4 h-4 ml-2" />
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </BackgroundBeamsWithCollision>
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
@@ -118,5 +122,4 @@ const Project = () => {
     </section>
   );
 };
-
 export default Project;
