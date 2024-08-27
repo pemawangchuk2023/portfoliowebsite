@@ -36,33 +36,31 @@ const Project = () => {
         Featured Projects
       </h2>
       <Tabs defaultValue="web" className="w-full" onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-4 mb-4">
-          <div className="flex">
-            <TabsTrigger
-              value="web"
-              className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl text-center"
-            >
-              Full Stack Development
-            </TabsTrigger>
-            <TabsTrigger
-              value="mobile"
-              className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl text-center"
-            >
-              Mobile Application
-            </TabsTrigger>
-            <TabsTrigger
-              value="data"
-              className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl text-center"
-            >
-              Web3
-            </TabsTrigger>
-            <TabsTrigger
-              value="ai"
-              className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl text-center"
-            >
-              AI Project Developed
-            </TabsTrigger>
-          </div>
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+          <TabsTrigger
+            value="web"
+            className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-lg sm:text-2xl text-center"
+          >
+            Full Stack Development
+          </TabsTrigger>
+          <TabsTrigger
+            value="mobile"
+            className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-lg sm:text-2xl text-center"
+          >
+            Mobile Application
+          </TabsTrigger>
+          <TabsTrigger
+            value="data"
+            className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-lg sm:text-2xl text-center"
+          >
+            Web3
+          </TabsTrigger>
+          <TabsTrigger
+            value="ai"
+            className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-lg sm:text-2xl text-center"
+          >
+            AI Project Developed
+          </TabsTrigger>
         </TabsList>
         {["web", "mobile", "data", "ai"].map((tab) => (
           <TabsContent key={tab} value={tab}>
@@ -75,14 +73,14 @@ const Project = () => {
                         <Card>
                           <CardHeader>
                             <CardTitle className="flex items-center">
-                              <span className="ml-2 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent">
+                              <span className="ml-2 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-xl sm:text-2xl">
                                 {project.title}
                               </span>
                             </CardTitle>
                           </CardHeader>
-                          <CardContent className="flex">
+                          <CardContent className="flex flex-col sm:flex-row">
                             {/* Project Image */}
-                            <div className="w-1/2">
+                            <div className="w-full sm:w-1/2">
                               <Image
                                 src={project.image}
                                 alt={project.title}
@@ -92,16 +90,16 @@ const Project = () => {
                               />
                             </div>
                             {/* Project Description */}
-                            <div className="w-1/2 pl-4">
-                              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-justify capitalize font-sans text-gray-800 dark:text-gray-200">
+                            <div className="w-full sm:w-1/2 sm:pl-4">
+                              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-justify capitalize font-sans text-gray-800 dark:text-gray-200">
                                 {project.description}
                               </p>
                             </div>
                           </CardContent>
-                          <CardFooter>
+                          <CardFooter className="mt-4 sm:mt-0">
                             <Button
                               variant="outline"
-                              className="w-fit bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-2xl border-2 border-sky-400"
+                              className="w-full sm:w-auto bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent text-xl sm:text-2xl border-2 border-sky-400"
                             >
                               View Project{" "}
                               <ExternalLink className="w-4 h-4 ml-2" />
@@ -122,4 +120,5 @@ const Project = () => {
     </section>
   );
 };
+
 export default Project;
