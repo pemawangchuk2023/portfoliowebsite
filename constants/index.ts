@@ -5,16 +5,20 @@ export const TopBars = [
   { name: "Contact", href: "#contact" },
 ];
 
-export const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Bitcoin",
-  "Blockchain",
-  "Smart Contract",
-  "JavaScript",
-  "Solidity",
+interface Skill {
+  title: string;
+  iconSrc: string;
+}
+
+export const skillsData: Skill[] = [
+  { title: "React", iconSrc: "/assets/react.png" },
+  { title: "Next.js", iconSrc: "/assets/nextjs.svg" },
+  { title: "TypeScript", iconSrc: "/assets/typescript.png" },
+  { title: "Tailwind", iconSrc: "/assets/tailwindcss.png" },
+  { title: "Node.js", iconSrc: "/assets/node.png" },
+  { title: "MongoDB", iconSrc: "/assets/mongodb.png" },
+  { title: "Github", iconSrc: "/assets/github.png" },
+  { title: "Solidity", iconSrc: "/assets/solidity.png" },
 ];
 export const achievements = [
   "Completed a development of fullstack Q & A based platform from JS Mastery using NextJS",
@@ -36,7 +40,8 @@ export const projects = [
   {
     id: "web",
     title: "Banking Application",
-    description: "Banking build and deploy a banking app with a finance management dashboard that connects multiple bank accounts, displays real-time transactions, and allows you to transfer money to other users on the platform using Next.js 14",
+    description:
+      "Banking build and deploy a banking app with a finance management dashboard that connects multiple bank accounts, displays real-time transactions, and allows you to transfer money to other users on the platform using Next.js 14",
     image: "/assets/projects/project2.png",
     tags: ["Shadcn", "Typescript", "Appwrite"],
     link: "#",
@@ -44,7 +49,8 @@ export const projects = [
   {
     id: "web",
     title: "Pema Zoom",
-    description: " This is professional enterprise-ready video conferencing app built using Next.js 14, Stream, and Tailwind CSS.",
+    description:
+      " This is professional enterprise-ready video conferencing app built using Next.js 14, Stream, and Tailwind CSS.",
     image: "/assets/projects/project3.png",
     tags: ["Shadcn", "Typescript", "MongoDB"],
     link: "#",
@@ -52,7 +58,8 @@ export const projects = [
   {
     id: "web",
     title: "Cloned Twitter",
-    description: "This is a modern social app with a stunning UI with a native mobile feel, a special tech stack, an infinite scroll feature, and amazing performance using React JS, Appwrite and TypeScript",
+    description:
+      "This is a modern social app with a stunning UI with a native mobile feel, a special tech stack, an infinite scroll feature, and amazing performance using React JS, Appwrite and TypeScript",
     image: "/assets/projects/project4.png",
     tags: ["Shadcn", "Typescript", "MongoDB"],
     link: "#",

@@ -1,33 +1,64 @@
-'use client';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { skillsData } from "@/constants";
+import { HoverBorderGradient } from "./acer/hover-border-gradient";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Badge } from "@/components/ui/badge";
-import GlassmorphicCard from './GlassmorphicCard';
-import { skills } from '@/constants';
+const SkillSection = () => {
+  const [currentPositions, setCurrentPositions] = useState([...skillsData]);
 
-const SkillsSection: React.FC = () => (
-  <section id="skills" className="mb-16">
-    <h2 className="text-3xl font-bold mb-4 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent">Skills & Expertise</h2>
-    <GlassmorphicCard>
-      <div className="p-6">
-        <div className="flex flex-wrap gap-2 text-xl space-x-4">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1.2 }}
-              transition={{ delay: index * 0.1, duration: 0.3 }}
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPositions((prevPositions) => {
+        if (prevPositions.length > 0) {
+          const newPositions = [...prevPositions];
+          const firstElement = newPositions.shift();
+          if (firstElement) {
+            newPositions.push(firstElement);
+          }
+          return newPositions;
+        }
+        return prevPositions;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <section className="w-full py-8 md:py-12 lg:py-16">
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+          My Skills As a Self-Learner
+        </h2>
+        <p className="max-w-[700px] text-muted-foreground md:text-xl lg:text-base xl:text-2xl">
+          Explore the technologies and tools I&apos;m proficient in.
+        </p>
+        <div className="relative w-[500px] h-[500px]">
+          {currentPositions.map((skill, index) => (
+            <div
+              key={skill.title}
+              className={`skill-container skill-circle skill-pos-${index}`}
             >
-              <Badge variant="secondary" className="text-xl cursor-pointer bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-yellow-800 via-amber-300 to-green-300 bg-clip-text text-transparent">
-                {skill}
-              </Badge>
-            </motion.div>
+              <HoverBorderGradient
+                containerClassName="rounded-xl"
+                as="button"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+              >
+                <Image
+                  src={skill.iconSrc}
+                  alt={`${skill.title} icon`}
+                  width={80}
+                  height={80}
+                  style={{ width: "80px", height: "80px" }}
+                  layout="intrinsic"
+                />
+              </HoverBorderGradient>
+            </div>
           ))}
         </div>
       </div>
-    </GlassmorphicCard>
-  </section>
-);
+    </section>
+  );
+};
 
-export default SkillsSection;
+export default SkillSection;

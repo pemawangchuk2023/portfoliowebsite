@@ -29,7 +29,6 @@ const Project = () => {
   const filteredProjects = projects.filter(
     (project) => project.id === activeTab
   );
-
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-semibold mb-4 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-red-400 via-sky-600 to-purple-800 bg-clip-text text-transparent">
@@ -120,5 +119,4 @@ const Project = () => {
     </section>
   );
 };
-
 export default Project;

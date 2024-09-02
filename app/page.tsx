@@ -1,13 +1,6 @@
 "use client";
-
-import AboutSection from "@/components/AboutSection";
-import AchievementsSection from "@/components/AchievementSection";
-import ContactSection from "@/components/ContactSection";
 import ExcellCell from "@/components/ExcellCell";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Project from "@/components/Project";
-import SkillsSection from "@/components/SkillSection";
+
 import React from "react";
 
 const Portfolio = () => {
@@ -21,15 +14,6 @@ const Portfolio = () => {
           />
         ))}
       </div>
-      <Header />
-      <main className="container mx-auto px-4 py-8 relative z-10">
-        <AboutSection />
-        <SkillsSection />
-        <AchievementsSection />
-        <Project />
-        <ContactSection />
-      </main>
-      <Footer />
     </div>
   );
 }

@@ -67,3 +67,58 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* globals.css */
+
+.skill-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease-in-out;
+  margin: 0 20px; /* Add horizontal margin to increase gap */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skill-circle {
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+}
+
+.spin-animation {
+  animation: spin 10s linear infinite;
+}
+
+/* Add transform classes for different positions */
+.skill-pos-0 {
+  transform: rotate(0deg) translate(180px) rotate(0deg);
+}
+.skill-pos-1 {
+  transform: rotate(45deg) translate(180px) rotate(-45deg);
+}
+.skill-pos-2 {
+  transform: rotate(90deg) translate(180px) rotate(-90deg);
+}
+.skill-pos-3 {
+  transform: rotate(135deg) translate(180px) rotate(-135deg);
+}
+.skill-pos-4 {
+  transform: rotate(180deg) translate(180px) rotate(-180deg);
+}
+.skill-pos-5 {
+  transform: rotate(225deg) translate(180px) rotate(-225deg);
+}
+.skill-pos-6 {
+  transform: rotate(270deg) translate(180px) rotate(-270deg);
+}
+.skill-pos-7 {
+  transform: rotate(315deg) translate(180px) rotate(-315deg);
+}
